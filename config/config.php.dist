@@ -1,0 +1,28 @@
+<?php
+
+return [
+
+    /** LOG PATH */
+    'log.path' => '/var/log/crawlers/log_name.log',
+
+    'mongodb.options' => [
+        'driver'   => 'mongodb',
+        'host'     => '',
+        'port'     => '',
+        'username' => '',
+        'password' => '',
+        'database' => '',
+        'options' => [ 'db' => '' ]
+    ],
+
+    'mysql.options' => [
+        'driver'    => 'mysql',
+        'host'      => '',
+        'database'  => '',
+        'username'  => 'root',
+        'password'  => '',
+        'charset'   => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix'    => '',
+    ]
+];

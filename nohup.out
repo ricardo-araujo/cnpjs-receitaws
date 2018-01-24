@@ -1,0 +1,1 @@
+PHP Warning:  Error while sending STMT_PREPARE packet. PID=20814 in /var/www/html/php/new-empresometro/vendor/illuminate/database/Connection.php on line 326

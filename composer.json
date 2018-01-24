@@ -1,0 +1,25 @@
+{
+    "name": "forseti/cnpjs-receitaws",
+    "description": "Captura empresas atraves da api da ReceitaWS e persiste numa base de dados Mongo",
+
+    "authors": [
+        {
+            "name": "Ricardo Araujo",
+            "email": "ricardo.araujo@forseti.com.br"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Forseti\\Cnpjs\\": "src/"
+        }
+    },
+
+    "require": {
+        "illuminate/database": "^5.5",
+        "guzzlehttp/guzzle": "^6.3",
+        "php-di/php-di": "^5.4",
+        "symfony/console": "^4.0",
+        "jenssegers/mongodb": "^3.3"
+    }
+}
