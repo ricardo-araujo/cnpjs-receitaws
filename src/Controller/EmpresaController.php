@@ -2,8 +2,9 @@
 
 namespace Forseti\Cnpjs\Controller;
 
-use Forseti\Empresometro\Model\Empresa;
-use Forseti\Empresometro\Utils\Utils;
+
+use Forseti\Cnpjs\Model\Empresa;
+use Forseti\Cnpjs\Utils\Utils;
 
 class EmpresaController
 {

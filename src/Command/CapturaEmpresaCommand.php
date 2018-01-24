@@ -2,8 +2,8 @@
 
 namespace Forseti\Cnpjs\Command;
 
-use Forseti\Empresometro\Controller\EmpresaController;
-use Forseti\Empresometro\Request\ReceitaWS;
+use Forseti\Cnpjs\Controller\EmpresaController;
+use Forseti\Cnpjs\Request\ReceitaWS;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

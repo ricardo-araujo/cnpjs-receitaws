@@ -2,7 +2,7 @@
 
 namespace Forseti\Cnpjs\Command;
 
-use Forseti\Empresometro\Model\Cnpjs;
+use Forseti\Cnpjs\Model\Cnpjs;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputArgument;
