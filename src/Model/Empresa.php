@@ -8,7 +8,7 @@ use Illuminate\Database\Query\Builder;
 class Empresa
 {
     /**
-     * @param  string|array|\Closure  $column
+     * @param  string|array|\Closure $column
      * @param  string|null  $operator
      * @param  mixed   $value
      * @param  string  $boolean
@@ -22,6 +22,11 @@ class Empresa
     public static function insert($table, $values)
     {
         return self::getInstance($table)->insert($values);
+    }
+
+    public static function update($table, $values)
+    {
+        return self::getInstance($table)->update($values);
     }
 
     private static function getInstance($table)

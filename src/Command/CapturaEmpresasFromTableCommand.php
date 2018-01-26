@@ -33,14 +33,14 @@ EOT
     {
         $tabela = $input->getArgument('tabela');
         $coluna = $input->getArgument('coluna');
-        $coll = $input->getArgument('collection');
+        $collection = $input->getArgument('collection');
 
         $model = new Cnpjs();
         $model->setTable($tabela);
 
-        $model->chunk(1000, function($cnpjs_collection) use($coll, $coluna) {
+        $model->chunk(1000, function($cnpjs_collection) use($collection, $coluna) {
             foreach ($cnpjs_collection as $cnpjModel) {
-                $this->capturaEmpresaCommand($coll, $cnpjModel->{$coluna});
+                $this->capturaEmpresaCommand($collection, $cnpjModel->{$coluna});
             }
         });
     }
