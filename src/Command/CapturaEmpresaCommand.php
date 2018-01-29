@@ -42,8 +42,7 @@ EOT
 
         $empresa = $this->receitaRequest->getEmpresa($cnpj);
 
-        if ($empresa) {
+        if ($empresa)
             EmpresaController::store($collection, $empresa);
-        }
     }
 }

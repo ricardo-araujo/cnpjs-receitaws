@@ -9,8 +9,8 @@ return [
     return new \GuzzleHttp\Client([
         'cookies' => true,
         'verify' => false,
-        'timeout' => 60,
-        'connect_timeout' => 60 ]);
+        'timeout' => 5,
+        'connect_timeout' => 5]);
     },
 
     \Psr\Log\LoggerInterface::class => function(ContainerInterface $c) {

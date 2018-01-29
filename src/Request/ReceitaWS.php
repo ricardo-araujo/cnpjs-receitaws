@@ -29,26 +29,24 @@ class ReceitaWS
 
             $resp = $this->client->request('GET', "https://www.receitaws.com.br/v1/cnpj/{$cnpj}");
 
-            $empresa = @json_decode($resp->getBody()->getContents(), true);
+            $requisicao = @json_decode($resp->getBody()->getContents(), true);
 
-            $this->logger->info("Resultado retornado para o cnpj {$cnpj}", ['empresa' => $empresa]);
+            $this->logger->info("Resultado retornado para o cnpj {$cnpj}", ['req' => $requisicao]);
 
-            return ($empresa['status'] == 'OK') ? $empresa : null;
+            return ($requisicao['status'] == 'OK') ? $requisicao : null;
 
         } catch(\Exception $e) {
 
-            $this->logger->error($e->getMessage(), ['exception' => $e]);
+            $this->logger->error($e->getCode(), ['exception' => $e]);
 
             if (!$tries)
-                return null;
-
-            if ($e->getCode() === 504)
                 return null;
 
             if ($e->getCode() === 429)
                 sleep($tries * 10);
 
             $tries--;
+
             goto beggining;
         }
     }
