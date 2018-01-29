@@ -16,21 +16,18 @@ class ReceitaWS
         $this->logger = $logger;
     }
 
-    public function getEmpresa($cnpj)
+    public function getEmpresa($cnpj, $tries = 3)
     {
-        $tries = 2;
+        $tries--;
 
         beggining:
         try {
 
+            sleep(1);
+
             $this->logger->info("Pesquisando cnpj {$cnpj}", ['tentativa' => $tries]);
 
             $resp = $this->client->request('GET', "https://www.receitaws.com.br/v1/cnpj/{$cnpj}");
-
-            sleep(1);
-
-            if ($resp->getStatusCode() !== 200)
-                return null;
 
             $empresa = @json_decode($resp->getBody()->getContents(), true);
 
@@ -38,12 +35,14 @@ class ReceitaWS
 
             return ($empresa['status'] == 'OK') ? $empresa : null;
 
-
         } catch(\Exception $e) {
 
             $this->logger->error($e->getMessage(), ['exception' => $e]);
 
             if (!$tries)
+                return null;
+
+            if ($e->getCode() === 504)
                 return null;
 
             if ($e->getCode() === 429)
