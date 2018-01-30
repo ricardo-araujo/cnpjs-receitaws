@@ -39,9 +39,9 @@ EOT
         $model->setTable($tabela);
 
         $model->chunk(1000, function($cnpjs_collection) use($collection, $coluna) {
-            foreach ($cnpjs_collection as $cnpjModel) {
+            $cnpjs_collection->where($coluna, '!=', null)->each(function($cnpjModel) use($collection, $coluna)  {
                 $this->capturaEmpresaCommand($collection, $cnpjModel->{$coluna});
-            }
+            });
         });
     }
 
