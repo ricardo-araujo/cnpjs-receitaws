@@ -22,6 +22,8 @@ class ReceitaWS
         if (!Utils::cnpjIsValid($cnpj))
             return null;
 
+        $cnpj = Utils::fillStringWithChar(Utils::onlyDigits($cnpj), 14, 0);
+
         $tries--;
 
         beggining:
