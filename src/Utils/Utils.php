@@ -8,6 +8,8 @@ class Utils
 
     public static function cnpjIsValid($cnpj)
     {
+        $cnpj = self::fillStringWithChar(self::onlyDigits($cnpj), 14, 0);
+
         for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++) {
             $soma += $cnpj{$i} * $j;
             $j = ($j == 2) ? 9 : $j - 1;
